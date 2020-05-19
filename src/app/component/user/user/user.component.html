@@ -1,0 +1,212 @@
+<table>
+  <tr>
+<div class="col md-4">
+
+
+    <td style="width: 100px; padding-right: 70px; ">
+<form>
+  <button class="btn btn-primary btn-lg" style="margin-top: 90px;"> Add Biblio</button>
+  <!--<div class="form-group" >
+    <br><br>
+    <label for="idUtilisateur">idUtilisateur :</label>
+    <input type="idUtilisateur" [(ngModel)]="user.idUtilisateur" placeholder="idUtilisateur" name="idUtilisateur" class="form-control" id="idUtilisateur">
+  </div>-->
+  <div class="form-group" >
+
+    <label for="nm">nom :</label>
+    <input type="nm" [(ngModel)]="user.nom" placeholder="nom" name="nm" class="form-control" id="nm">
+  </div>
+
+  <div class="form-group">
+    <label for="prenom">prenom:</label>
+    <input [(ngModel)]="user.prenom"  placeholder="prenom" name="prenom" class="form-control" id="prenom">
+  </div>
+
+  <div class="form-group">
+    <label for="ddn">ddn:</label>
+    <input [(ngModel)]="user.dDN " type="date" placeholder="yyyy-MM-dd" name="ddn" class="form-control" id="date">
+  </div>
+
+  <div class="form-group">
+    <label for="numNat">numero national:</label>
+    <input [(ngModel)]="user.numNat" placeholder="numnat" name="numnat" class="form-control" id="numNat">
+  </div>
+
+  <div class="form-group">
+    <label for="email">email:</label>
+    <input [(ngModel)]="user.email" placeholder="email" name="email" class="form-control" id="email">
+  </div>
+
+  <div class="form-group">
+    <label for="mdp">Mot de passe:</label>
+    <input [(ngModel)]="user.mdp"  placeholder="mdp" name="mdp" class="form-control" id="mdp">
+  </div>
+
+  <div class="form-group">
+    <label for="username">username:</label>
+    <input [(ngModel)]="user.username"  placeholder="username" name="username" class="form-control" id="username">
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <button class="btn btn-success" (click)="onCreateBiblio()">Create</button>
+</form>
+</td>
+
+
+
+</div>
+
+<div class="col md-4">
+
+
+  <td style="width: 100px; padding-right: 70px; ">
+<form>
+<button class="btn btn-primary btn-lg" style="margin-top: 90px;"> Add Manager</button>
+<!--<div class="form-group" >
+  <br><br>
+  <label for="idUtilisateur">idUtilisateur :</label>
+  <input type="idUtilisateur" [(ngModel)]="user.idUtilisateur" placeholder="idUtilisateur" name="idUtilisateur" class="form-control" id="idUtilisateur">
+</div>-->
+<div class="form-group" >
+
+  <label for="nom">nom :</label>
+  <input type="nom" [(ngModel)]="user1.nom" placeholder="nom" name="nom" class="form-control" id="nom">
+</div>
+
+<div class="form-group">
+  <label for="prenom">prenom:</label>
+  <input [(ngModel)]="user1.prenom"  placeholder="prenom" name="prenom" class="form-control" id="prenom">
+</div>
+
+<div class="form-group">
+  <label for="ddn">ddn:</label>
+  <input [(ngModel)]="user1.dDN " type="date" placeholder="yyyy-MM-dd" name="ddn" class="form-control" id="date">
+</div>
+
+<div class="form-group">
+  <label for="numNat">numero national:</label>
+  <input [(ngModel)]="user1.numNat" placeholder="numnat" name="numnat" class="form-control" id="numNat">
+</div>
+
+<div class="form-group">
+  <label for="email">email:</label>
+  <input [(ngModel)]="user1.email" placeholder="email" name="email" class="form-control" id="email">
+</div>
+
+<div class="form-group">
+  <label for="mdp">Mot de passe:</label>
+  <input [(ngModel)]="user1.mdp"  placeholder="mdp" name="mdp" class="form-control" id="mdp">
+</div>
+
+<div class="form-group">
+  <label for="username">username:</label>
+  <input [(ngModel)]="user1.username"  placeholder="username" name="username" class="form-control" id="username">
+</div>
+
+
+
+
+
+
+
+
+
+
+<button class="btn btn-success" (click)="onCreateMana()">Create</button>
+</form>
+</td>
+
+
+
+</div>
+
+<td style="width: 100px; padding-right: 70px;">
+
+<button type="button" class="btn btn-primary btn-lg " >Liste utilisateur</button>
+
+<p  *ngFor="let utilisateur of users; let i = index"></p>
+
+<table class="table table-striped" style ="margin-bottom: 545px; float: inline-end">
+  <thead>
+  <tr>
+
+    <th scope="col">nom</th>
+    <th scope="col">email</th>
+    <th scope="col">Role</th>
+    <th scope="col">#######</th>
+    <th scope="col">#######</th>
+    <th scope="col">redevance montant</th>
+
+  </tr>
+  </thead>
+
+
+
+  <tbody>
+  <tr *ngFor="let utilisateur of users" >
+
+    <td>{{ utilisateur.nom }}</td>
+    <td>{{ utilisateur.email}}</td>
+    <td > <span *ngIf = "utilisateur.role != undefined">{{ utilisateur?.role[0]?.nom}}</span> </td>
+    <td><button type="button" class="btn btn-success">Promouvoir</button></td>
+    <td><button type="button" class="btn btn-danger">Rétrograder</button></td>
+   <td> a faire</td>
+
+  </tr>
+  </tbody>
+</table>
+<br>
+
+</td>
+<td style="width: 250px; padding-right: 70px; ">
+<br>
+
+
+</td>
+
+
+
+</tr>
+</table>
+<!--
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmitt()">
+    <div class="form-group">
+      <label for="name">First Name</label>
+      <input type="text" class="form-control" id="firstName" required [(ngModel)]="userr.nom" name="firstName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Last Name</label>
+      <input type="text" class="form-control" id="lastName" required [(ngModel)]="userr.prenom" name="lastName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">First</label>
+      <input type="text" class="form-control" id="idUtilisateur" required [(ngModel)]="userr.idUtilisateur" name="idUtilisateur">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+   <button class="btn btn-success" (click)="newEmployee()">Add</button>
+</div>-->
+
+
+
+
+
+<!--<button type="button" (click)="tst()">
+  ok
+  </button>-->

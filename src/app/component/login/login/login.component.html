@@ -1,0 +1,24 @@
+<form *ngIf="!logged" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <h3>Login</h3>
+  <label>
+    Mail:
+    <input type="text" formControlName="mail">
+  </label>
+  <label>
+    Password:
+    <input type="password" formControlName="password">
+  </label>
+  <button class="btn btn-success" type="submit">Se connecter</button>
+</form>
+
+<button class="btn btn-danger"*ngIf="logged" (click)="logout()">Se deconnecter</button>
+
+<br>
+Infos en mémoire (Pour test seulement)
+<br>
+Login {{login}}<br>
+Token {{token}}<br>
+
+
+
+

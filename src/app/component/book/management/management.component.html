@@ -1,0 +1,41 @@
+
+<div class="col md-4">
+  <h2 class="text-center"> Add book</h2>
+
+<form>
+  <div class="form-group">
+    <br><br>
+    <label for="nom">nom :</label>
+    <input type="nom" [(ngModel)]="book.nom" placeholder="nom" name="nom" class="form-control" id="nom">
+  </div>
+
+  <div class="form-group">
+    <label for="descriptif">descriptif:</label>
+    <input [(ngModel)]="book.descriptif" placeholder="descriptif" name="descriptif" class="form-control" id="descriptif">
+  </div>
+
+  <div class="form-group">
+    <label for="isbn">isbn:</label>
+    <input [(ngModel)]="book.isbn" placeholder="isbn" name="isbn" class="form-control" id="isbn">
+  </div>
+
+  <div class="form-group">
+    <label for="prix">prix:</label>
+    <input [(ngModel)]="book.prix" placeholder="prix" name="prix" class="form-control" id="prix">
+  </div>
+
+  <div class="form-group">
+    <label for="edition">edition:</label>
+    <input [(ngModel)]="book.edition" placeholder="edition" name="edition" class="form-control" id="edition">
+  </div>
+
+  <div class="form-group">
+    <label for="etat">etat:</label>
+    <input [(ngModel)]="book.etat" placeholder="etat" name="etat" class="form-control" id="etat">
+  </div>
+
+
+
+  <button class="btn btn-success" (click)="createBook()">Create</button>
+</form>
+</div>

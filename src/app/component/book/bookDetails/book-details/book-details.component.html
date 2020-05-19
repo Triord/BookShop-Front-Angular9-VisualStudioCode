@@ -1,0 +1,30 @@
+<div class ="table table-striped" *ngIf="book">
+<table>
+  <thead>
+    <tr>
+
+      <th scope="col">nom</th>
+      <th scope="col">descriptif</th>
+      <th scope="col">edition</th>
+      <th scope="col">etat</th>
+      <th scope="col">isbn</th>
+      <th scope="col">prix</th>
+      <th scope ="col">##########</th>
+
+    </tr>
+    </thead>
+
+
+  <tbody>
+  <tr>
+  <td>{{book.nom}}</td>
+  <td>{{book.descriptif}}</td>
+  <td>{{book.edition}}</td>
+  <td>{{book.etat}}</td>
+  <td>{{book.isbn}}</td>
+  <td>{{book.prix}}</td>
+  <td><button class="btn btn-primary" (click)="onLocation()">louer</button></td>
+  </tr>
+  </tbody>
+  </table>
+</div>
