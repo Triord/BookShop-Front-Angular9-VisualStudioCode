@@ -1,32 +1,41 @@
 
 <ul ngbNav #nav="ngbNav" [activeId]="2" class="nav-tabs justify-content-center">
-  <button routerLinkActive="active"><a routerLink = "/home">Accueil</a>
+  <button  routerLinkActive="active" [routerLink]="'/home'">Accueil
     <ng-template ngbNavContent>
 
     </ng-template>
   </button>
-  <button routerLinkActive="active"><a routerLink = "/contact">Contact</a>
+  <button routerLinkActive="active" [routerLink]="'/contact'">Contact
+    <ng-template ngbNavContent>
+      <p></p>
+    </ng-template>
+  </button>
+  <button routerLinkActive="active" [routerLink]="'/profil'">profil
+    <ng-template ngbNavContent>
+      <p></p>
+    </ng-template>
+  </button>
+  <button >test method
     <ng-template ngbNavContent>
       <p></p>
     </ng-template>
   </button>
   <li ngbDropdown class="nav-item">
-    <a href (click)="false" class="nav-link" ngbDropdownToggle>Management</a>
+    <a href (click)="false" class="nav-link" ngbDropdownToggle style="padding: 10px;">Management</a>
     <div ngbDropdownMenu>
-      <button ngbDropdownItem><a routerLink = "/user">User</a></button>
-      <button ngbDropdownItem><a routerLink = "/book">Book</a></button>
+      <button  ngbDropdownItem [routerLink]="'/user'">User</button>
+      <button ngbDropdownItem [routerLink]="'/book'">Book</button>
       <button ngbDropdownItem>Something else here</button>
       <div class="dropdown-divider"></div>
       <button ngbDropdownItem>Separated link</button>
     </div>
   </li>
-  <li ngbNavItem [disabled]="true" class="ml-auto">
-    <button><a routerLink = "/login">Authentification</a></button>
-    <button><a routerLink = "/register">s enregistrer</a></button>
-    <ng-template ngbNavContent>
-      <p></p>
-    </ng-template>
+
+  <li *ngIf="!f" ngbNavItem [disabled]="true" class="ml-auto">
+    <button [routerLink]="'/login'" style="padding: 10px;" >Authentification</button>
   </li>
+
+  <button class="ml-auto" style="background-color: red; color: white; padding: 10px;" *ngIf="f" (click)="logout()">Se deconnecter</button>
 </ul>
 
 

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Role } from '../interface/Role';
 import { API_URL } from '../app.constants';
+import { Locution } from '../interface/location';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -23,4 +24,6 @@ roles: Role[] = [];
   getRoleById(id: string){
     return this.roles.find(r => r.idRole === id);
   }
+
+
 }

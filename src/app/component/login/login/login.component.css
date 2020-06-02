@@ -1,0 +1,9 @@
+div.center {
+  position:absolute;
+  left: 50%;
+  top: 30%;
+  width: 200px;
+  height: 200px;
+  margin-left: -100px; /* Cette valeur doit être la moitié négative de la valeur du width */
+  margin-top: -100px; /* Cette valeur doit être la moitié négative de la valeur du height */
+}

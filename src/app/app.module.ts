@@ -1,3 +1,5 @@
+import { RoleService } from './services/role.service';
+import { AuthGuardService } from './services/auth-guard.service';
 import { UserComponent } from './component/user/user/user.component';
 
 import { LoginComponent } from './component/login/login/login.component';
@@ -24,20 +26,22 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ManagementComponent } from './component/book/management/management.component';
 import { BookDetailsComponent } from './component/book/bookDetails/book-details/book-details.component';
 import { RegistrationComponent } from './component/user/registration/registration.component';
+import { ProfilComponent } from './component/user/profil/profil.component';
 
 
 const routes: Routes = [
 
-  { path: 'user', component: UserComponent },
+  { path: 'user', canActivate: [AuthGuardService],component: UserComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'contact', component: ContactComponent},
+  { path: 'contact',component: ContactComponent},
   {path: 'home', component: VieuwComponent},
   {path: 'book', component: ManagementComponent},
-  {path: 'bookDetails/:id', component: BookDetailsComponent},
+  {path: 'bookDetails/:id', canActivate: [AuthGuardService], component: BookDetailsComponent},
+  {path: 'profil', canActivate: [AuthGuardService], component: ProfilComponent},
   {path: 'register', component: RegistrationComponent},
   {path: 'not-found', component: VieuwComponent},
   { path: '', component: VieuwComponent },
-  {path: '**', redirectTo: 'not-found'}
+  {path: '**',canActivate: [AuthGuardService], redirectTo: 'not-found'}
 ];
 
 @NgModule({
@@ -51,6 +55,7 @@ const routes: Routes = [
     ManagementComponent,
     BookDetailsComponent,
     RegistrationComponent,
+    ProfilComponent,
 
 
 
@@ -69,6 +74,8 @@ const routes: Routes = [
   ],
   providers: [
     AppareilsService,
+    AuthGuardService,
+    RoleService,
 
    { provide: HTTP_INTERCEPTORS,
     useClass: HttpInterceptorAuthService,

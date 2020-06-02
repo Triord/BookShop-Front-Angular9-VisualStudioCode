@@ -1,3 +1,4 @@
+import { Locution } from 'src/app/interface/location';
 import { Books } from './../interface/book';
 import { API_URL } from './../app.constants';
 import { Users } from './../interface/user';
@@ -16,6 +17,7 @@ const httpOptions = {
 export class AppareilsService {
   // Variable de classes
   private user = Users;
+  private loc = Locution;
   userSubject = new Subject<any[]>();
    public readonly RootUrl: string = 'http://localhost:9898/';
    private readonly noAuthreqHeader = new HttpHeaders({ 'No-Auth': 'True' });
@@ -35,6 +37,9 @@ export class AppareilsService {
   getAllBook() {
     return this.http.get(`${API_URL}Livres`);
   }
+  getBookById(id: string){
+    return this.books.find(b => b.idlivre === id);
+  }
  updateUser(id: number , value: any): Observable<Object> {
    return this.http.put(`${API_URL}user/${id}`, value);
  }
@@ -53,9 +58,9 @@ export class AppareilsService {
     return this.http.post<any>(`${API_URL}lecteur`, user);
 
   }
-  louer(books){
-    return this.http.post<any>(`${API_URL}louer`, books);
-
+  louer(loc){
+    return this.http.post<any>(`${API_URL}louer`, loc);
+    console.log(loc);
   }
   addMana(user){
     console.log(user);
@@ -75,4 +80,8 @@ export class AppareilsService {
   updateBook(id: any, value: any){
     return this.http.put(`${API_URL}Livres/${id}`, value);
   }
+  getMyLoc() {
+    return this.http.get(`${API_URL}test1`);
+  }
+
 }

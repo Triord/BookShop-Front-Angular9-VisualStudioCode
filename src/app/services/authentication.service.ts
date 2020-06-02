@@ -1,7 +1,9 @@
+import { Users } from './../interface/user';
 import { AppareilsService } from './appareils.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 
 export const TOKEN = 'token';

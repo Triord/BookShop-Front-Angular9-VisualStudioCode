@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthenticationService } from './../../../services/authentication.service';
 
 import { FormBuilder } from '@angular/forms';
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
     password: []
   });
 
-  constructor(private authService: AuthenticationService, private fb: FormBuilder) { }
+  constructor(private authService: AuthenticationService, private fb: FormBuilder, private router: Router ) { }
 
   ngOnInit(): void {
 
@@ -31,6 +32,8 @@ export class LoginComponent implements OnInit {
         this.login = this.authService.getAuthenticatedUser();
         this.token = this.authService.getAuthenticatedToken();
         this.logged = true;
+        this.router.navigate(['/home']);
+        this.reload();
       }
     );
   }
@@ -40,5 +43,10 @@ export class LoginComponent implements OnInit {
     this.login = this.authService.getAuthenticatedUser();
     this.token = this.authService.getAuthenticatedToken();
     this.logged = false;
+  }
+  reload(){
+    setTimeout(()=>{
+      window.location.reload();
+    }, 100);
   }
 }

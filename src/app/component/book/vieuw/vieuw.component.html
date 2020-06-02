@@ -1,5 +1,5 @@
 <div class = "container">
-<button class="btn btn-primary"  style = "width: 50rem; margin-left: 8rem; ">Home</button>
+<button class="btn btn-primary"  style = "margin: auto; display: block; width: 250px;">Home</button>
 
 <div class="row" *ngIf="books" >
   <div class="card col-md-4 p-1" *ngFor="let l of books; let i =index " class="p-3" style = " width: 13.5rem; ">
@@ -18,6 +18,7 @@
                   {{l.descriptif}}
               </div>
           </div>
+
           <div class="form-group row">
             <div class="col-12">
               <button ><a  [routerLink]="['/bookDetails/'+l.idlivre]">Details</a></button>

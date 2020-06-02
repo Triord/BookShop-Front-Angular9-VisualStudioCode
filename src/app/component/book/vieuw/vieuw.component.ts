@@ -22,12 +22,12 @@ Users: any[];
 selectedId: number;
 
   ngOnInit() {
+
 this.appS.getAllBook().subscribe((reponse: Books[]) => {
         this.books = reponse;
       }, erreur => {
         console.log(erreur);
       });
-
 
   }
 
