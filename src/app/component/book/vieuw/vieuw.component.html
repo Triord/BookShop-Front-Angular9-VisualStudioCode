@@ -1,39 +1,52 @@
-<div class = "container">
-<button class="btn btn-primary"  style = "margin: auto; display: block; width: 250px;">Home</button>
+<div class="card" style="width: 100px; float: left;">
+  <div class="card-body" style="background-color: rgb(198, 198, 252);">
+  <div  *ngFor="let l of sc.livre">
+  <h5>{{l.nom}} </h5>
 
-<div class="row" *ngIf="books" >
-  <div class="card col-md-4 p-1" *ngFor="let l of books; let i =index " class="p-3" style = " width: 13.5rem; ">
-  <div class="card">
-      <div class="card-header text-center">
-          {{l?.nom}}
-      </div>
-      <div class="card-body text-center">
-          <div class="form-group row">
-              <div class="col-12">
-                  {{l.idlivre}}
-              </div>
-          </div>
-          <div class="form-group row">
-              <div class="col-12">
-                  {{l.descriptif}}
-              </div>
-          </div>
+ </div>
+  </div>
+ </div>
+ <button *ngIf="sc.quantity >0"  (click)="onLocation(); tst()">louer</button>
 
+  <div style="display: inline-block; text-align: center; position: absolute;">
+  <h2  style="padding-top: 25px">Home</h2>
+
+  <div class="row" *ngIf="books">
+    <div class="card col-md-4 p-1" *ngFor="let l of books; let i =index " class="p-3" style=" width: 16.5rem; ">
+      <div class="card" style="border-color: grey;  ">
+        <div class="card-header text-center" style="border-bottom: grey; background-color: grey;">
+         <h4>{{l?.nom}}</h4>
+        </div>
+        <div class="card-body text-center" style="background-color: grey;">
           <div class="form-group row">
             <div class="col-12">
-              <button ><a  [routerLink]="['/bookDetails/'+l.idlivre]">Details</a></button>
+              {{l.descriptif}}
             </div>
-        </div>
+          </div>
       </div>
-  </div>
+          <div class="card-footer " style="border-top: grey; background-color: grey;" >
+          <div class="form-group row">
+            <div class="col-6">
+              <button class="btn btn-dark"><a style="color: white; " [routerLink]="['/bookDetails/'+l.idlivre] ">Details</a></button>
+            </div>
+            <div class="col-6">
+              <button class="btn btn-dark" (click)="addtocart(l)">AddCart</button>
+
+            </div>
+
+</div>
+        </div>
+
+      </div>
+
+
 
   </div>
 
 
 </div>
 
-
-
+</div>
 
 
 

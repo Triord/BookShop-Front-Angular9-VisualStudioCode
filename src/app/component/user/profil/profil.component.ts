@@ -1,7 +1,9 @@
+import { RouterStateSnapshot, ActivatedRoute } from '@angular/router';
 import { Books } from './../../../interface/book';
 import { AppareilsService } from 'src/app/services/appareils.service';
 import { Component, OnInit } from '@angular/core';
 import { Locution } from 'src/app/interface/location';
+import { Role } from 'src/app/interface/Role';
 
 @Component({
   selector: 'app-profil',
@@ -10,21 +12,28 @@ import { Locution } from 'src/app/interface/location';
 })
 export class ProfilComponent implements OnInit {
 
-  constructor(private appS: AppareilsService) { }
-  loc: Locution[] = [];
-  livre: Books[] = [];
+  constructor(private appS: AppareilsService , private route: ActivatedRoute) { }
+  loc  = [];
+  livre = [];
+  r: Role;
   ngOnInit() {
- this.appS.getAllBook().subscribe((response: Books[]) => {
+ this.appS.getAllBook().subscribe((response: any) => {
       this.appS.books = response;
-      this.appS.getMyLoc().subscribe((reponse: Locution[]) => {
+      this.appS.getMyLoc().subscribe((reponse: any) => {
       this.loc = reponse ;
-      this.loc.forEach(l => { if (typeof l.livre === 'number' )  {
-        l.livre = this.appS.getBookById(l.livre);console.log(l.dFinLocation)
+      this.loc.forEach(l => { if (Number.isInteger(l.livre[0]))  {
+        l.livre[0] = this.appS.getBookById(l.livre[0]);
+        console.log(l)
         }});
     }, erreur => {
     console.log('erreur');
  });
 });
+
+
+
+}
+m(){
 
 }
 }

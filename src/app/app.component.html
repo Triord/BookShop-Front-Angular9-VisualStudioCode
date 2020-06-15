@@ -1,36 +1,36 @@
 
-<ul ngbNav #nav="ngbNav" [activeId]="2" class="nav-tabs justify-content-center">
-  <button  routerLinkActive="active" [routerLink]="'/home'">Accueil
+<ul ngbNav #nav="ngbNav" [activeId]="2" class="nav-tabs justify-content-center" style="background-color: black;border-color: #303030;">
+  <button  routerLinkActive="active" [routerLink]="'/home'" style="background-color: #303030;border-color: #303030; color: gray;">Accueil
     <ng-template ngbNavContent>
 
     </ng-template>
   </button>
-  <button routerLinkActive="active" [routerLink]="'/contact'">Contact
+  <button routerLinkActive="active" [routerLink]="'/contact'"style="background-color: #303030; border-color: #303030; color: gray;">Contact
     <ng-template ngbNavContent>
       <p></p>
     </ng-template>
   </button>
-  <button routerLinkActive="active" [routerLink]="'/profil'">profil
+  <button routerLinkActive="active" [routerLink]="'/profil'"style="background-color: #303030; border-color: #303030; color: gray;">profil
     <ng-template ngbNavContent>
       <p></p>
     </ng-template>
   </button>
-  <button >test method
+  <button  style="background-color: #303030; border-color: #303030; color: gray;">test method
     <ng-template ngbNavContent>
       <p></p>
     </ng-template>
   </button>
+  <div *ngIf="!t" >
   <li ngbDropdown class="nav-item">
-    <a href (click)="false" class="nav-link" ngbDropdownToggle style="padding: 10px;">Management</a>
-    <div ngbDropdownMenu>
-      <button  ngbDropdownItem [routerLink]="'/user'">User</button>
-      <button ngbDropdownItem [routerLink]="'/book'">Book</button>
-      <button ngbDropdownItem>Something else here</button>
-      <div class="dropdown-divider"></div>
-      <button ngbDropdownItem>Separated link</button>
+
+    <a href (click)="false" class="nav-link" ngbDropdownToggle style="padding: 10px; background-color: #303030; color: gray;">Management</a>
+    <div ngbDropdownMenu style="background-color: #303030;">
+      <button  ngbDropdownItem [routerLink]="'/user'" style="color: gray;">User</button>
+      <button ngbDropdownItem [routerLink]="'/book'" style="color: gray;">Book</button>
+      <button ngbDropdownItem style="color: gray;">Something else here</button>
     </div>
   </li>
-
+</div>
   <li *ngIf="!f" ngbNavItem [disabled]="true" class="ml-auto">
     <button [routerLink]="'/login'" style="padding: 10px;" >Authentification</button>
   </li>
@@ -62,3 +62,4 @@
   <router-outlet></router-outlet>
   </div>
 </div>
+

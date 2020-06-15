@@ -3,7 +3,7 @@ export class Books {
   nom: string;
   descriptif: string;
   isbn: number;
-  prix: string;
+  prix: number;
   edition: string;
   etat: string;
   images: string;

@@ -29,13 +29,14 @@ import { RegistrationComponent } from './component/user/registration/registratio
 import { ProfilComponent } from './component/user/profil/profil.component';
 
 
+
 const routes: Routes = [
 
   { path: 'user', canActivate: [AuthGuardService],component: UserComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contact',component: ContactComponent},
   {path: 'home', component: VieuwComponent},
-  {path: 'book', component: ManagementComponent},
+  {path: 'book', canActivate: [AuthGuardService], component: ManagementComponent},
   {path: 'bookDetails/:id', canActivate: [AuthGuardService], component: BookDetailsComponent},
   {path: 'profil', canActivate: [AuthGuardService], component: ProfilComponent},
   {path: 'register', component: RegistrationComponent},
@@ -56,6 +57,7 @@ const routes: Routes = [
     BookDetailsComponent,
     RegistrationComponent,
     ProfilComponent,
+
 
 
 

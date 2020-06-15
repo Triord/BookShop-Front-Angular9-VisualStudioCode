@@ -8,5 +8,5 @@ dDebutLocation: Date;
 dFinLocation: Date;
 datLocation: Date ;
 user: Users;
-livre: Books;
+livre: Books[];
 }

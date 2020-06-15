@@ -1,10 +1,55 @@
 <table>
   <tr>
-<div class="col md-4">
+<div class="col md-4" >
+
+  <td style="position: relative; display: inline-block; text-align: center;">
+
+    <h2 style="padding-top: 25px;" >Liste utilisateur</h2>
+
+    <p  *ngFor="let utilisateur of users; let i = index"></p>
+
+    <table class="table table-striped"  >
+      <thead>
+      <tr>
+
+        <th scope="col">nom</th>
+        <th scope="col">email</th>
+        <th scope="col">Role</th>
+        <th scope="col">#######</th>
+        <th scope="col">#######</th>
+        <th scope="col">redevance montant</th>
+
+      </tr>
+      </thead>
 
 
-    <td style="width: 100px; padding-right: 70px; ">
-<form>
+
+      <tbody>
+      <tr *ngFor="let utilisateur of users" >
+
+        <td>{{ utilisateur.nom }}</td>
+        <td>{{ utilisateur.email}}</td>
+        <td > <span *ngIf = "utilisateur.role != undefined">{{ utilisateur?.role[0]?.nom}}</span> </td>
+        <td><button type="button" class="btn btn-success">Promouvoir</button></td>
+        <td><button type="button" class="btn btn-danger">Rétrograder</button></td>
+       <td> a faire</td>
+
+      </tr>
+      </tbody>
+    </table>
+    <br>
+
+    </td>
+    <td style="width: 250px; padding-right: 70px; ">
+    <br>
+
+
+    </td>
+
+
+
+    <td style=" position: relative; display: inline-block; text-align: center;">
+<form style="padding-right: 600px;">
   <button class="btn btn-primary btn-lg" style="margin-top: 90px;"> Add Biblio</button>
   <!--<div class="form-group" >
     <br><br>
@@ -62,12 +107,12 @@
 
 
 
-</div>
-
-<div class="col md-4">
 
 
-  <td style="width: 100px; padding-right: 70px; ">
+
+
+
+  <td style=" position: relative; display: inline-block; text-align: center;">
 <form>
 <button class="btn btn-primary btn-lg" style="margin-top: 90px;"> Add Manager</button>
 <!--<div class="form-group" >
@@ -126,54 +171,10 @@
 
 
 
+
+
+
 </div>
-
-<td style="width: 100px; padding-right: 70px;">
-
-<button type="button" class="btn btn-primary btn-lg " >Liste utilisateur</button>
-
-<p  *ngFor="let utilisateur of users; let i = index"></p>
-
-<table class="table table-striped" style ="margin-bottom: 545px; float: inline-end">
-  <thead>
-  <tr>
-
-    <th scope="col">nom</th>
-    <th scope="col">email</th>
-    <th scope="col">Role</th>
-    <th scope="col">#######</th>
-    <th scope="col">#######</th>
-    <th scope="col">redevance montant</th>
-
-  </tr>
-  </thead>
-
-
-
-  <tbody>
-  <tr *ngFor="let utilisateur of users" >
-
-    <td>{{ utilisateur.nom }}</td>
-    <td>{{ utilisateur.email}}</td>
-    <td > <span *ngIf = "utilisateur.role != undefined">{{ utilisateur?.role[0]?.nom}}</span> </td>
-    <td><button type="button" class="btn btn-success">Promouvoir</button></td>
-    <td><button type="button" class="btn btn-danger">Rétrograder</button></td>
-   <td> a faire</td>
-
-  </tr>
-  </tbody>
-</table>
-<br>
-
-</td>
-<td style="width: 250px; padding-right: 70px; ">
-<br>
-
-
-</td>
-
-
-
 </tr>
 </table>
 <!--

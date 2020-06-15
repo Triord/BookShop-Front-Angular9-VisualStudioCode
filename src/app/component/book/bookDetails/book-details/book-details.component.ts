@@ -40,7 +40,7 @@ export class BookDetailsComponent implements OnInit {
     onLocation() {
 
       this.loc = new Locution();
-      this.loc.livre = this.book;
+      this.loc.livre = this.books;
 
 
       console.log(this.loc);
