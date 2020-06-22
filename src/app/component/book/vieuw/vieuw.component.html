@@ -6,7 +6,9 @@
  </div>
   </div>
  </div>
- <button *ngIf="sc.quantity >0"  (click)="onLocation(); tst()">louer</button>
+
+ <button *ngIf="sc.quantity >0 "  (click)="onLocation()">louer</button>
+
 
   <div style="display: inline-block; text-align: center; position: absolute;">
   <h2  style="padding-top: 25px">Home</h2>
@@ -29,7 +31,7 @@
             <div class="col-6">
               <button class="btn btn-dark"><a style="color: white; " [routerLink]="['/bookDetails/'+l.idlivre] ">Details</a></button>
             </div>
-            <div class="col-6">
+            <div class="col-6" *ngIf="!l.etat"  >
               <button class="btn btn-dark" (click)="addtocart(l)">AddCart</button>
 
             </div>

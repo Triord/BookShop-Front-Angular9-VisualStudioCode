@@ -1,7 +1,8 @@
+import { Books } from 'src/app/interface/book';
 import { ShoppingCart } from './../../../interface/shoppingCart';
 
 import { AppareilsService } from './../../../services/appareils.service';
-import { Books } from './../../../interface/book';
+
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 
 
@@ -11,6 +12,7 @@ import { API_URL } from 'src/app/app.constants';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Locution } from 'src/app/interface/location';
+import { equal } from 'assert';
 
 @Component({
   selector: 'app-vieuw',
@@ -28,6 +30,9 @@ Users: any[];
   selectedId: number;
   sc: ShoppingCart; // Changer la propriété book en livre ou inversément <- dans l'objet of course
   loc: Locution;
+  price: number;
+  test: number;
+  livre: Books;
 
   ngOnInit() {
     this.loadBook();
@@ -38,11 +43,13 @@ Users: any[];
   loadBook() {
        this.appS.getAllBook().subscribe((reponse: Books[]) => {
         this.books = reponse;
-        console.log(this.books);
+
       }, erreur => {
         console.log(erreur);
       });
   }
+
+
 
     employeeDetails(id: any){
 
@@ -62,19 +69,38 @@ Users: any[];
       this.sc.price = book.prix + this.sc.price  ;
       console.log('qtt: ' + this.sc.quantity);
       console.log('prix:' + this.sc.price);
+      this.price = this.sc.price ;
     }
 
 
     onLocation() {
+      this.livre  = new Books();
 
+      console.log('livre :' + this.livre);
       this.loc = new Locution();
       this.loc.livre = this.sc.livre;
+      this.loc.priceTotal = this.sc.price;
+      for (let i = 0; i < this.sc.livre.length; i++) {
+        this.loc.livre[i].quantity = this.loc.livre[i].quantity -= 1;
+
+
+      }
+
 
 
       console.log(this.loc);
 
       this.appS.louer(this.loc).subscribe(data => {
-        console.log(data);
+        this.loc = data;
+        console.log(this.loc.idLocation)
+
+
+        if ( parseInt(this.loc.idLocation) === 0) {
+          window.alert('location non effectué , amende en cours')
+        }
+        if ( parseInt(this.loc.idLocation) > 0) {
+          this.tst();
+        }
             });
 
     }
@@ -82,6 +108,9 @@ Users: any[];
      window.alert('Location effectué');
      this.router.navigate(['/profil']);
     }
+    tst2(){
+      window.alert('Location non possible');
+     }
 
 
     }

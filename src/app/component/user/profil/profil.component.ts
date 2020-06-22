@@ -32,8 +32,17 @@ export class ProfilComponent implements OnInit {
 
 
 
-}
-m(){
 
+}
+rendre(id: number) {
+  this.appS.rendreBook(id)
+    .subscribe(
+      data => {
+        console.log(data);
+        this.appS.getAllBook().subscribe(( data: any) => {
+          this.loc = data;
+      });
+     },
+      error => console.log(error));
 }
 }

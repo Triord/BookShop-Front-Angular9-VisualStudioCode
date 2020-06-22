@@ -8,7 +8,7 @@
     <div class="card "style="border-color: grey;  ">
         <div class="card-header text-center" style="border-bottom: grey; background-color: grey;">
 
-          <span *ngIf = "l.livre != undefined">{{l?.livre[0]?.nom}}</span>
+          <span *ngIf = "l.livre != undefined">{{l?.livre[0]?.nom }} </span>
 
         </div>
         <div class="card-body text-center" style="background-color: grey;">
@@ -19,10 +19,17 @@
             </div>
             <div class="form-group row">
                 <div class="col-12">
-                    {{l.dFinLocation}}
+                    date fin location :{{l.dFinLocation}}
                 </div>
             </div>
 
+        </div>
+        <div class="card-footer text-center" style="background-color: grey;">
+          <div class="form-group row">
+              <div class="col-12">
+                <button class="btn btn-dark" (click)="rendre(l.idLocation)">rendre</button>
+              </div>
+          </div>
         </div>
     </div>
 

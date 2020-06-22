@@ -83,8 +83,8 @@ export class AppareilsService {
   getBook(id: any ): Books {
     return this.books.find(x => x.idlivre === id);
   }
-  updateBook(id: any, value: any) {
-    return this.http.put(`${API_URL}Livres/${id}`, value);
+  updateBook( value: any) {
+    return this.http.put(`${API_URL}Livres`, value);
   }
   getMyLoc() {
     return this.http.get(`${API_URL}test1`);
@@ -94,6 +94,12 @@ export class AppareilsService {
   }
   getMyRole(id: any) {
     return this.http.get(`${API_URL}role/${id}`);
+  }
+  rendreBook(id:any){
+    return this.http.delete(`${API_URL}rendre/${id}`);
+  }
+  checkAmende(){
+    return this.http.get(`${API_URL}check`);
   }
 
 

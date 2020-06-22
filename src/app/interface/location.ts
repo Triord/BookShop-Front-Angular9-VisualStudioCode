@@ -7,6 +7,7 @@ idLocation: string;
 dDebutLocation: Date;
 dFinLocation: Date;
 datLocation: Date ;
+priceTotal: number;
 user: Users;
 livre: Books[];
 }
